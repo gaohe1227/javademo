@@ -1,15 +1,15 @@
-package Ä£Ê½.¹Û²ìÕß;
+package æ¨¡å¼.è§‚å¯Ÿè€…;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * ×÷ÓÃ:¾ßÌåÄ¿±ê¶ÔÏóµÄÀà
+ * ä½œç”¨:å…·ä½“ç›®æ ‡å¯¹è±¡çš„ç±»
  *
- * 2015Äê11ÔÂ5ÈÕ
+ * 2015å¹´11æœˆ5æ—¥
  */
 public class ConcreteSubject extends Subject {
-	private String subjectstate;// Ä¿±ê¶ÔÏóµÄ×´Ì¬
+	private String subjectstate;// ç›®æ ‡å¯¹è±¡çš„çŠ¶æ€
 
 	public String getSubjectstate() {
 		return subjectstate;

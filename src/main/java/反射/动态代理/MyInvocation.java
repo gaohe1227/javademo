@@ -1,14 +1,14 @@
-package ·´Éä.¶¯Ì¬´úÀí;
+ package åå°„.åŠ¨æ€ä»£ç†;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * ×÷ÓÃ:ÊÂÎï´¦ÀíÆ÷(¶¯Ì¬´úÀíºËĞÄÀà)
+ * ä½œç”¨:äº‹ç‰©å¤„ç†å™¨(åŠ¨æ€ä»£ç†æ ¸å¿ƒç±»)
  *
- * 2015Äê11ÔÂ4ÈÕ
+ * 2015å¹´11æœˆ4æ—¥
  */
 public class MyInvocation implements InvocationHandler{
     private Object obj;
@@ -18,10 +18,10 @@ public class MyInvocation implements InvocationHandler{
 		this.obj = obj;
 	}
     /**
-     * proxy:±»´úÀí¶ÔÏó
-     * method:±»´úÀí¶ÔÏóµÄ·½·¨ 
-     * args:·½·¨²ÎÊı
-     * obj:Ä¿±ê¶ÔÏó
+     * proxy:è¢«ä»£ç†å¯¹è±¡
+     * method:è¢«ä»£ç†å¯¹è±¡çš„æ–¹æ³• 
+     * args:æ–¹æ³•å‚æ•°
+     * obj:ç›®æ ‡å¯¹è±¡
      */
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args)

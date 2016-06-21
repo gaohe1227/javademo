@@ -1,15 +1,15 @@
-package ¶àÏß³Ì;
+package å¤šçº¿ç¨‹;
 
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-/**\
+/**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ16ÈÕ
+ * 2016å¹´6æœˆ21æ—¥
  *
- * ×÷ÓÃ:Timer°¸Àı
+ * ä½œç”¨:Timeræ¡ˆä¾‹
  */
 public class TestTimer {
 	public TestTimer(int second){
@@ -18,7 +18,7 @@ public class TestTimer {
 	}
    private static class MyTimerTask extends TimerTask{
 	   public void run(){
-		   System.out.println("µ±Ç°Ê±¼äÎª:"+new Date());
+		   System.out.println("å½“å‰æ—¶é—´:"+new Date());
 	   }
    }
    public static void main(String[] args) {

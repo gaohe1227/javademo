@@ -1,32 +1,32 @@
-package ·´Éä;
+ package åå°„;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ14ÈÕ
+ * 2016å¹´6æœˆ14æ—¥
  *
- * ×÷ÓÃ:·´Éä¹¤¾ßÀà
+ * ä½œç”¨:åå°„å·¥å…·ç±»
  */
 public class ReflectUtil {
 	/**
-	 * Ö´ĞĞ·½·¨
+	 * æ‰§è¡Œæ–¹æ³•
 	 * 
-	 * @param obj:Ö´ĞĞ·½·¨µÄ¶ÔÏó
-	 * @param methodName:·½·¨Ãû³Æ
-	 * @param args:·½·¨²ÎÊı;
+	 * @param obj:æ‰§è¡Œæ–¹æ³•çš„å¯¹è±¡
+	 * @param methodName:æ–¹æ³•åç§°
+	 * @param args:æ–¹æ³•å‚æ•°;
 	 * @return
 	 */
 	public Object invoke(Object obj, String methodName, Object... args) {
-		Class[] parameterTypes = new Class[args.length];// »ñÈ¡²ÎÊıÁĞ±íµÄÀàĞÍ¼¯ºÏ
+		Class[] parameterTypes = new Class[args.length];// è·å–å‚æ•°åˆ—è¡¨çš„ç±»å‹é›†åˆ
 		for (int i = 0; i < parameterTypes.length; i++) {
 			parameterTypes[i] = args[i].getClass();
 		}
 		try {
-			Method method = obj.getClass().getDeclaredMethod(methodName, parameterTypes);// »ñÈ¡·½·¨ 
+			Method method = obj.getClass().getDeclaredMethod(methodName, parameterTypes);// è·å–æ–¹æ³• 
 			method.setAccessible(true);
 			return method.invoke(obj, args);
 		} catch (SecurityException | IllegalAccessException | IllegalArgumentException
@@ -38,10 +38,10 @@ public class ReflectUtil {
 
 	}
 	 /**
-	  * Ö´ĞĞ·½·¨
-	  * @param className:È«ÀàÃû
-	  * @param methodName:·½·¨Ãû³Æ
-	  * @param args:·½·¨²ÎÊı
+	  * æ‰§è¡Œæ–¹æ³•
+	  * @param className:å…¨ç±»å
+	  * @param methodName:æ–¹æ³•åç§°
+	  * @param args:æ–¹æ³•å‚æ•°
 	  * @return
 	  */
 	public Object invoke(String className, String methodName, Object... args) {

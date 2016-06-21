@@ -1,11 +1,11 @@
-package ·´Éä.¶¯Ì¬´úÀí;
+ package åå°„.åŠ¨æ€ä»£ç†;
 
 public class RealSubject implements Subject{
 
 	@Override
 	public String say(String word, int age) {
 		// TODO Auto-generated method stub
-		return "ÓïÑÔ:"+word+";ÄêÁä:"+age;
+		return "è¯è¯­:"+word+";å¹´é¾„:"+age;
 	}
 
 

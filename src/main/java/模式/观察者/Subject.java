@@ -1,25 +1,26 @@
-package Ä£Ê½.¹Û²ìÕß;
+ 
+package æ¨¡å¼.è§‚å¯Ÿè€…;
 
 import java.util.ArrayList;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * ×÷ÓÃ:Ä¿±ê¶ÔÏóµÄÀà£¬ËüÖªµÀ¹Û²ìËüµÄ¹Û²ìÕß£¬²¢Ìá¹©×¢²á(Ìí¼Ó)ºÍÉ¾³ıµÄ½Ó¿Ú
+ * ä½œç”¨:ç›®æ ‡å¯¹è±¡çš„ç±»ï¼Œå®ƒçŸ¥é“è§‚å¯Ÿå®ƒçš„è§‚å¯Ÿè€…ï¼Œå¹¶æä¾›æ³¨å†Œ(æ·»åŠ )å’Œåˆ é™¤çš„æ¥å£
  *
- * 2015Äê11ÔÂ5ÈÕ
+ * 2015å¹´11æœˆ5æ—¥
  */
 public class Subject {
-	private ArrayList<Observer> observers = new ArrayList<Observer>();// ±£´æ×¢²áµÄ¹Û²ìÕß¶ÔÏó
+	private ArrayList<Observer> observers = new ArrayList<Observer>();// ä¿å­˜æ³¨å†Œçš„è§‚å¯Ÿè€…å¯¹è±¡
 
-	public void attach(Observer observer) {// °É¹Û²ìÕß¶ÔÏóÌí¼Óµ½¹Û²ìÕß¼¯ºÏÖĞ
+	public void attach(Observer observer) {// å§è§‚å¯Ÿè€…å¯¹è±¡æ·»åŠ åˆ°è§‚å¯Ÿè€…é›†åˆä¸­
 		this.observers.add(observer);
 	}
-	public void detach(Observer observer){//É¾³ıÖ¸¶¨¹Û²ìÕß
+	public void detach(Observer observer){//åˆ é™¤æŒ‡å®šè§‚å¯Ÿè€…
 		this.observers.remove(observer);
 	}
-	//Í¨ÖªËùÓĞµÄ¹Û²ìÕß
+	//é€šçŸ¥æ‰€æœ‰çš„è§‚å¯Ÿè€…
 	protected void notifytach(){
 		for (Observer observer : observers) {
 			observer.update(this);

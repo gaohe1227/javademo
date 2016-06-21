@@ -1,11 +1,11 @@
-package ¶àÏß³Ì;
+package å¤šçº¿ç¨‹;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ15ÈÕ
+ * 2016å¹´6æœˆ21æ—¥
  *
- * ×÷ÓÃ:ËÀËø°¸Àı
+ * ä½œç”¨:æ­»é”æ¡ˆä¾‹
  */
 public class DeadLock implements Runnable {
 	private static Zhang z=new Zhang();
@@ -58,18 +58,18 @@ public class DeadLock implements Runnable {
 
 class Zhang{
 	public void say(){
-		System.out.println("ÀîËÄÄã°ÑÊé½è¸øÎÒ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}
 	public void get(){
-		System.out.println("ÕÅÈıµÃµ½ÁËÀîËÄµÄÊé");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½");
 	}
 }
 class Li{
 	public void say(){
-		System.out.println("ÕÅÈıÄã°Ñ»­½è¸øÎÒ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}
 	public void get(){
-		System.out.println("ÀîËÄµÃµ½ÁËÕÅÈıµÄ»­");
+		System.out.println("ï¿½ï¿½ï¿½ÄµÃµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½");
 	}
  
 }

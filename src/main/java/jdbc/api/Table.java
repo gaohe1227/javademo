@@ -1,11 +1,11 @@
 package jdbc.api;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê3ÔÂ31ÈÕ
+ * 2016å¹´6æœˆ21æ—¥
  *
- * ×÷ÓÃ:±íÃû
+ * ä½œç”¨:
  */
 public class Table {
 	private String tableName;

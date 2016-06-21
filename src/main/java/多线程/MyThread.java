@@ -1,19 +1,19 @@
-package ¶àÏß³Ì;
+ package å¤šçº¿ç¨‹;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ15ÈÕ
+ * 2016å¹´6æœˆ15æ—¥
  *
- * ×÷ÓÃ:ÏØÏß³Ì×´Ì¬:Thread t=new Thread(new MyThread(),"²âÊÔÏß³Ì")£º´´½¨;t.start():¿ªÆô¾ÍĞ÷;
- *            t.join():¹ÒÆğ;tµÄrun()Ö´ĞĞÊ±:ÔËĞĞ×´Ì¬;stop()»òrun·½·¨Ö´ĞĞÍê±Ï£ºÏß³ÌËÀÍö
+ * ä½œç”¨:å¿çº¿ç¨‹çŠ¶æ€:Thread t=new Thread(new MyThread(),"æµ‹è¯•çº¿ç¨‹")ï¼šåˆ›å»º;t.start():å¼€å¯å°±ç»ª;
+ *            t.join():æŒ‚èµ·;tçš„run()æ‰§è¡Œæ—¶:è¿è¡ŒçŠ¶æ€;stop()æˆ–runæ–¹æ³•æ‰§è¡Œå®Œæ¯•ï¼šçº¿ç¨‹æ­»äº¡
  */
 public class MyThread implements Runnable{
 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-	//µ±Ç°Ïß³ÌĞİÃß1ÃëÖÓ
+	//å½“å‰çº¿ç¨‹ä¼‘çœ 1ç§’é’Ÿ
 		for(int i=0;i<=100;i++){
 			try {
 				Thread.sleep(1000);
@@ -23,25 +23,25 @@ public class MyThread implements Runnable{
 			}
 			if(i==50){
 				 
-				Thread.currentThread().interrupt();//ÖÕ½áµ±Ç°Ïß³ÌµÄ×èÈû×´Ì¬
+				Thread.currentThread().interrupt();//ç»ˆç»“å½“å‰çº¿ç¨‹çš„é˜»å¡çŠ¶æ€
 			}
 			System.out.println(Thread.currentThread().getName()+"----"+i);
 		}
 	}
 public static void main(String[] args) {
-	Thread t=new Thread(new MyThread(),"²âÊÔÏß³Ì");
+	Thread t=new Thread(new MyThread(),"æµ‹è¯•çº¿ç¨‹");
 	t.start();
 	for(int i=0;i<50;i++){
 		 
 		if(i==10){
 			try {
-				t.join();//Ïß³ÌÇ¿ÖÆÖ´ĞĞ
+				t.join();//çº¿ç¨‹å¼ºåˆ¶æ‰§è¡Œ
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Ö÷Ïß³Ì:"+i);
+		System.out.println("ä¸»çº¿ç¨‹:"+i);
 	}
 	
 }

@@ -1,4 +1,4 @@
-package ¶àÏß³Ì;
+package å¤šçº¿ç¨‹;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -23,7 +23,7 @@ public class Computer{
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Âô:"+j); 
+		System.out.println("ï¿½ï¿½:"+j); 
 	   super.notify();
 	   j--;
 	}
@@ -38,7 +38,7 @@ public class Computer{
 			}
 		}
 	    j++;
-		System.out.println("Éú²ú"+i);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½"+i);
 		super.notify();
 		 
 	
@@ -48,11 +48,11 @@ public class Computer{
 }
 /**
  * 
- * @author ¸ßº×
+ * @author ï¿½ßºï¿½
  *
- * 2016Äê6ÔÂ15ÈÕ
+ * 2016ï¿½ï¿½6ï¿½ï¿½15ï¿½ï¿½
  *
- * ×÷ÓÃ:Éú²úÕß
+ * ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 class ComputerProducer implements Runnable{
  private Computer info;
@@ -65,7 +65,7 @@ class ComputerProducer implements Runnable{
 		// TODO Auto-generated method stub
 	 
 		/**
-		 * Éú²úÐÅÏ¢
+		 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 		 */
 		for(int i=0;i<50;i++){
 			 this.info.setI(i+1);
@@ -77,11 +77,11 @@ class ComputerProducer implements Runnable{
 }
 /**]
  * 
- * @author ¸ßº×
+ * @author ï¿½ßºï¿½
  *
- * 2016Äê6ÔÂ15ÈÕ
+ * 2016ï¿½ï¿½6ï¿½ï¿½15ï¿½ï¿½
  *
- * ×÷ÓÃ:Ïû·ÑÕß
+ * ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 class ComputerCustomer implements Runnable{
 	 private Computer info;
@@ -93,7 +93,7 @@ class ComputerCustomer implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 		for(int i=0;i<50;i++){   
-				 this.info.getI();//È¡³öÐÅÏ¢
+				 this.info.getI();//È¡ï¿½ï¿½ï¿½ï¿½Ï¢
 		}
 		
 	}

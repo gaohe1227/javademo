@@ -1,18 +1,18 @@
-package jdbc.api;
+ package jdbc.api;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê3ÔÂ31ÈÕ
+ * 2016å¹´3æœˆ31æ—¥
  *
- * ×÷ÓÃ:Êı¾İ¿â±íÖĞµÄÁĞ
+ * ä½œç”¨:æ•°æ®åº“è¡¨ä¸­çš„åˆ—
  */
 public class Column {
-	private String name;// ÁĞÃû
-	private String dataType;// ×Ö¶ÎÀàĞÍ
-	private String javaType;// javaÀàĞÍ
-	private String comment;//×¢ÊÍ
+	private String name;// åˆ—å
+	private String dataType;// å­—æ®µç±»å‹
+	private String javaType;// javaç±»å‹
+	private String comment;//æ³¨é‡Š
 
 	public Column() {
 		super();

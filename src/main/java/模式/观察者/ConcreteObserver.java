@@ -1,15 +1,15 @@
-package Ä£Ê½.¹Û²ìÕß;
+ package æ¨¡å¼.è§‚å¯Ÿè€…;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- *  ×÷ÓÃ:¾ßÌåµÄ¹Û²ìÕß½Ó¿Ú
+ *  ä½œç”¨:å…·ä½“çš„è§‚å¯Ÿè€…æ¥å£
  *
- *  2015Äê11ÔÂ5ÈÕ
+ *  2015å¹´11æœˆ5æ—¥
  */
 public class ConcreteObserver implements Observer {
-	private String observerState;// ¹Û²ìÕß×´Ì¬
+	private String observerState;// è§‚å¯Ÿè€…çŠ¶æ€
 
 	@Override
 	public void update(Subject subject) {

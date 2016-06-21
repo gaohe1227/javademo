@@ -1,4 +1,4 @@
-package Ã¶¾Ù;
+ package æšä¸¾;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -7,11 +7,11 @@ import java.util.TreeSet;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ14ÈÕ
+ * 2016å¹´6æœˆ14æ—¥
  *
- * ×÷ÓÃ:Ã¶¾Ù°¸Àı
+ * ä½œç”¨:æšä¸¾æ¡ˆä¾‹
  */
 enum Apple {
 	 BELMAC(11), AUROLE(10), CORTLAND(15),EMPRICE(8);
@@ -30,7 +30,7 @@ enum Apple {
 public class ApplesEnum {
 	public static void main(String[] args) {
 		for (Apple a : Apple.values()) {
-			System.out.println(a.getPrice() + "-----------" + a + "---" + a.name() + "--" + a.ordinal());//name:Ã¶¾Ù³£Á¿µÄÃû³Æ;ordinal:Ã¶¾Ù³£Á¿µÄĞòºÅ
+			System.out.println(a.getPrice() + "-----------" + a + "---" + a.name() + "--" + a.ordinal());//name:æšä¸¾å¸¸é‡çš„åç§°;ordinal:æšä¸¾å¸¸é‡çš„åºå·
 		}
 		
 		Set<Apple> cset=new TreeSet<Apple>();
@@ -44,7 +44,7 @@ public class ApplesEnum {
 		cset.add(Apple.BELMAC);
 		Iterator<Apple> aIterator=cset.iterator();
 		while(aIterator.hasNext()){
-			System.out.println(aIterator.next());//Êä³ö½á¹ûÖ¤Ã÷°´´ËÊ±°´ÕÕordinalÅÅÁĞ
+			System.out.println(aIterator.next());//è¾“å‡ºç»“æœè¯æ˜æŒ‰æ­¤æ—¶æŒ‰ç…§ordinalæ’åˆ—
 		}
 		
 		

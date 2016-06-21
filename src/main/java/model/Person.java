@@ -1,6 +1,6 @@
 package model;
 
-import ×¢½â.Agevalidator;
+import æ³¨è§£.Agevalidator;
 
 public class Person extends Father{
 	String name;
@@ -25,7 +25,7 @@ public class Person extends Father{
 	public void say(String name, Integer age) {
 		this.name = name;
 		this.age = age;
-		System.out.println("ÐÕÃû:"+name+";ÄêÁä:"+age);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½:"+name+";ï¿½ï¿½ï¿½ï¿½:"+age);
 	}
 	public Person(String name, Integer age) {
 		super();
@@ -33,7 +33,7 @@ public class Person extends Father{
 		this.age = age;
 	}
 	private void say(){
-		System.out.println("---------------------------------------µØ·½");
+		System.out.println("---------------------------------------ï¿½Ø·ï¿½");
 	}
 
 	@Override

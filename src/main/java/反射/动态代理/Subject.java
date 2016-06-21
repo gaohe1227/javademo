@@ -1,8 +1,8 @@
-package ·´Éä.¶¯Ì¬´úÀí;
+package åå°„.åŠ¨æ€ä»£ç†;
 
 public interface Subject {
 	default String say(){
-		System.out.println("Ä¬ÈÏ·½·¨");
+		System.out.println("æµ‹è¯•");
 		return null;
 		
 		

@@ -1,13 +1,13 @@
-package ¶àÏß³Ì;
+package å¤šçº¿ç¨‹;
 
 import java.util.Random;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2015Äê12ÔÂ3ÈÕ
+ * 2016å¹´6æœˆ21æ—¥
  *
- * ×÷ÓÃ:ThreadLocalµÄ¼òµ¥°¸Àý
+ * ä½œç”¨:ThreadLocalæ¡ˆä¾‹
  */
 public class ThreadLocalTest {
 	//static Map<Thread,Integer> dataMap=new HashMap();

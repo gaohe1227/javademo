@@ -1,4 +1,4 @@
-package ·´Éä°¸Àı;
+ package åå°„æ¡ˆä¾‹;
 
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
@@ -9,22 +9,20 @@ import java.lang.reflect.Method;
 import java.util.Properties;
 
 import org.junit.Test;
-import org.omg.Messaging.SyncScopeHelper;
-
 import model.Person;
-import ·´Éä.ReflectUtil;
-import ·´Éä.¶¯Ì¬´úÀí.MyInvocationHandler;
-import ·´Éä.¶¯Ì¬´úÀí.RealSubject;
-import ·´Éä.¶¯Ì¬´úÀí.Subject;
-import ×¢½â.Agevalidator;
+import åå°„.ReflectUtil;
+import åå°„.åŠ¨æ€ä»£ç†.MyInvocationHandler;
+import åå°„.åŠ¨æ€ä»£ç†.RealSubject;
+import åå°„.åŠ¨æ€ä»£ç†.Subject;
+import æ³¨è§£.Agevalidator;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- *         2016Äê6ÔÂ13ÈÕ
+ *         2016å¹´6æœˆ13æ—¥
  *
- *         ×÷ÓÃ:·´Éä²âÊÔ
+ *         ä½œç”¨:åå°„æµ‹è¯•
  */
 public class RelectTest {
 	@Test
@@ -32,7 +30,7 @@ public class RelectTest {
 		System.out.println("-------------");
 		MyInvocationHandler myInvocationHandler = new MyInvocationHandler();
 		Subject subject = (Subject) myInvocationHandler.bind(new RealSubject());
-		String info = subject.say("ÀîĞË»ª", 30);
+		String info = subject.say("æå…´å", 30);
 		System.out.println(info);
 	}
 
@@ -43,16 +41,16 @@ public class RelectTest {
 			clazz = Person.class;
 			System.out.println(clazz.getName() + clazz.newInstance());
 
-			Method[] methods = clazz.getMethods();// »ñÈ¡·½·¨
+			Method[] methods = clazz.getMethods();// è·å–æ–¹æ³•
 			for (Method method : methods) {
 				System.out.println(method.getModifiers() + "-------------" + method.getName() + "---"
 						+ method.getParameterTypes());
 			}
 			Method m = clazz.getMethod("setName", String.class);
-			;// »ñÈ¡Ö¸¶¨·½·¨
+			;// è·å–æŒ‡å®šæ–¹æ³•
 			Object obj = clazz.newInstance();
-			System.out.println("Ö´ĞĞ·½·¨");
-			Object o = m.invoke(obj, "Ãû³Æ");
+			System.out.println("æ‰§è¡Œæ–¹æ³•");
+			Object o = m.invoke(obj, "åç§°");
 			/* System.out.println(((Person)obj).getName()); */
 
 			clazz = Class.forName("model.Person");
@@ -64,9 +62,9 @@ public class RelectTest {
 			}
 			Person person = new Person();
 			clazz = person.getClass();
-			System.out.println(clazz.getName() + "------------" + clazz.newInstance());// Êä³öClass¶ÔÏóµÄÃû³ÆºÍClass¶ÔÏóËù´ú±íµÄÀàµÄÒ»¸öĞÂ¶ÔÏó
-			System.out.println(Class.forName("model.Person").getClassLoader());// Êä³öÀà¼ÓÔØÆ÷
-			InputStream in = RelectTest.class.getClassLoader().getResourceAsStream("testclassLoader.properties");// Àà¼ÓÔØÆ÷»ñÈ¡ÊäÈëÁ÷
+			System.out.println(clazz.getName() + "------------" + clazz.newInstance());// è¾“å‡ºClasså¯¹è±¡çš„åç§°å’ŒClasså¯¹è±¡æ‰€ä»£è¡¨çš„ç±»çš„ä¸€ä¸ªæ–°å¯¹è±¡
+			System.out.println(Class.forName("model.Person").getClassLoader());// è¾“å‡ºç±»åŠ è½½å™¨
+			InputStream in = RelectTest.class.getClassLoader().getResourceAsStream("testclassLoader.properties");// ç±»åŠ è½½å™¨è·å–è¾“å…¥æµ
 			Properties p = new Properties();
 			p.load(in);
 			System.out.println(p.getProperty("test1"));
@@ -84,8 +82,8 @@ public class RelectTest {
 			Class clazz = Class.forName("model.Person");
 
 			Object obj = clazz.newInstance();
-			reflectUtil.invoke(obj, "say", "²âÊÔ", 12);
-			reflectUtil.invoke("model.Person", "say", "²âÊÔ1", 121);
+			reflectUtil.invoke(obj, "say", "æµ‹è¯•", 12);
+			reflectUtil.invoke("model.Person", "say", "æµ‹è¯•1", 121);
 			/* System.out.println(reflectUtil.invoke(obj,"say")); */
 
 			System.exit(0);
@@ -95,24 +93,24 @@ public class RelectTest {
 	}
 
 	/**
-	 * ²âÊÔÊôĞÔ
+	 * æµ‹è¯•å±æ€§
 	 */
 	@Test
 	public void testField() {
 		try {
 			Class clazz = Class.forName("model.Person");
-			Field[] fields = clazz.getDeclaredFields();// »ñÈ¡ÊôĞÔÁĞ±í
+			Field[] fields = clazz.getDeclaredFields();// è·å–å±æ€§åˆ—è¡¨
 			for (Field field : fields) {
 				System.out.println(field.getName());
 			}
 			Field f = clazz.getDeclaredField("name");
 			System.out.println(f.getName());
-			Person p = new Person("²âÊÔ", 12);
-			Field field = clazz.getDeclaredField("name");// »¢ÇğÖ¸¶¨ÊôĞÔ
+			Person p = new Person("æµ‹è¯•", 12);
+			Field field = clazz.getDeclaredField("name");// è™ä¸˜æŒ‡å®šå±æ€§
 			field.setAccessible(true);
-			System.out.println(field.get(p));// Êä³öÊôĞÔÖµ
-			field.set(p, "Òø»ê");
-			System.out.println(field.get(p));// Êä³öÊôĞÔÖµ
+			System.out.println(field.get(p));// è¾“å‡ºå±æ€§å€¼
+			field.set(p, "é“¶é­‚");
+			System.out.println(field.get(p));// è¾“å‡ºå±æ€§å€¼
 		} catch (ClassNotFoundException | NoSuchFieldException | SecurityException | IllegalArgumentException
 				| IllegalAccessException e) {
 			// TODO Auto-generated catch block
@@ -120,19 +118,19 @@ public class RelectTest {
 		}
 	}
 	/**
-	 * ²âÊÔ¹¹ÔìÆ÷
+	 * æµ‹è¯•æ„é€ å™¨
 	 */
 	@Test
 	public void testConstructor(){
 		try {
 			Class clazz = Class.forName("model.Person");
-			Constructor<Person>[] constructors=	(Constructor<Person>[])clazz.getConstructors();//»ñÈ¡¹¹ÔìÆ÷ÁĞ±í
+			Constructor<Person>[] constructors=	(Constructor<Person>[])clazz.getConstructors();//è·å–æ„é€ å™¨åˆ—è¡¨
 			for (Constructor<Person> constructor : constructors) {
 				System.out.println(constructor);
 			}
-			Constructor<Person> constructor=clazz.getConstructor(String.class,Integer.class);//»ñÈ¡Ö¸¶¨²ÎÊıÀàĞÍµÄ¹¹ÔìÆ÷
+			Constructor<Person> constructor=clazz.getConstructor(String.class,Integer.class);//è·å–æŒ‡å®šå‚æ•°ç±»å‹çš„æ„é€ å™¨
 			System.out.println(constructor);
-			Person p=	constructor.newInstance("Æå»ê",12);//¹¹ÔìÆ÷´´½¨ÊµÀı
+			Person p=	constructor.newInstance("æ£‹é­‚",12);//æ„é€ å™¨åˆ›å»ºå®ä¾‹
 			System.out.println(p.getName());
 		} catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			// TODO Auto-generated catch block
@@ -141,7 +139,7 @@ public class RelectTest {
 		
 	}
 	/**
-	 * ²âÊÔ×¢½â
+	 * æµ‹è¯•æ³¨è§£
 	 */
 	@Test
 	public void testAnnocation(){
@@ -149,7 +147,7 @@ public class RelectTest {
 			Class clazz = Class.forName("model.Person");
 			Person p=(Person) clazz.newInstance();
 			Method m=clazz.getMethod("setAge", Integer.class);
-			Annotation a=	m.getAnnotation(Agevalidator.class);//»ñÈ¡×¢½âÊµÀı
+			Annotation a=	m.getAnnotation(Agevalidator.class);//è·å–æ³¨è§£å®ä¾‹
 		 
 			int val=120;
 			if(a!=null){
@@ -158,7 +156,7 @@ public class RelectTest {
 					Agevalidator agevalidator=(Agevalidator)a;
 					System.out.println(agevalidator.max()+"---"); 
 					if(val>agevalidator.max()||val<agevalidator.min()){
-						throw new RuntimeException("Êı×Ö¹ı´ó»ò¹ıĞ¡");
+						throw new RuntimeException("æ•°å­—è¿‡å¤§æˆ–è¿‡å°");
 					}
 				}
 			}

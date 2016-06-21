@@ -1,15 +1,15 @@
-package Ëã·¨.ÅÅĞò;
+ package ç®—æ³•.æ’åº;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ16ÈÕ
+ * 2016å¹´6æœˆ16æ—¥
  *
- * ×÷ÓÃ:Êı×éÅÅĞò
+ * ä½œç”¨:æ•°ç»„æ’åº
  */
 public class ArraysUtil {
 public static void main(String[] args) {
@@ -20,14 +20,14 @@ public static void main(String[] args) {
 	}
 	System.out.println();
 	List<String> strings=Arrays.asList(names);
-	Collections.sort(strings);//ÉıĞò
-	Collections.sort(strings,Collections.reverseOrder());//½µĞò
+	Collections.sort(strings);//å‡åº
+	Collections.sort(strings,Collections.reverseOrder());//é™åº
 	for (String string : strings) {
 		System.out.print(string+"   ");
 	}
 	System.out.println();
 	/**
-	 * ·´×ªÅÅĞò
+	 * åè½¬æ’åº
 	 * 
 	 */
 	Collections.reverse(strings);

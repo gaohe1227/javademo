@@ -1,4 +1,4 @@
-package Êı¾İ¿â.Á¬½Ó³Ø;
+ package æ•°æ®åº“.è¿æ¥æ± ;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,55 +14,55 @@ import java.util.Properties;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ17ÈÕ
+ * 2016å¹´6æœˆ17æ—¥
  *
- * ×÷ÓÃ:×Ô¶¨ÒåÊı¾İ¿âÁ¬½Ó³Ø
+ * ä½œç”¨:è‡ªå®šä¹‰æ•°æ®åº“è¿æ¥æ± 
  */
 public class MyConnectionpool {
-	private static LinkedList<Connection> pool = new LinkedList<Connection>(); //Á¬½Ó³Ø(Êı¾İ¿âÁ´½ÓµÄ¼¯ºÏ)
+	private static LinkedList<Connection> pool = new LinkedList<Connection>(); //è¿æ¥æ± (æ•°æ®åº“é“¾æ¥çš„é›†åˆ)
 	static{
 		try {
 		Properties properties=new Properties();
-		InputStream in=MyConnectionpool.class.getClassLoader().getResourceAsStream("jdbc.properties");//½«ÅäÖÃÎÄ¼ş·ÅÈëÊäÈëÁ÷ÖĞ
+		InputStream in=MyConnectionpool.class.getClassLoader().getResourceAsStream("jdbc.properties");//å°†é…ç½®æ–‡ä»¶æ”¾å…¥è¾“å…¥æµä¸­
 	    if(null==in){ 
-				throw new FileNotFoundException("ÕÒ²»µ½Ö¸¶¨ÎÄ¼ş"); 
+				throw new FileNotFoundException("æ‰¾ä¸åˆ°æŒ‡å®šæ–‡ä»¶"); 
 	    }
-	    properties.load(in);//½«ÊäÈëÁ÷¼ÓÔØµ½PropertiesÖĞ
+	    properties.load(in);//å°†è¾“å…¥æµåŠ è½½åˆ°Propertiesä¸­
 		 String driver = properties.getProperty("jdbc.driver");  
-         Class.forName(driver);//¼ÓÔØÇı¶¯  
+         Class.forName(driver);//åŠ è½½é©±åŠ¨  
          String jdbcurl = properties.getProperty("jdbc.url");  
          String nm = properties.getProperty("jdbc.username");  
          String pwd = properties.getProperty("jdbc.password");  
-         // ´´½¨Èı¸öÔ­ÉúµÄÁ¬½Ó£¬¶¼½«ËüÃÇ´úÀí  
+         // åˆ›å»ºä¸‰ä¸ªåŸç”Ÿçš„è¿æ¥ï¼Œéƒ½å°†å®ƒä»¬ä»£ç†  
          String poolSize = properties.getProperty("jdbc.pool.poolSize"); 
          int size = Integer.parseInt(poolSize);  
          for (int i = 0; i < size; i++) {  
              final Connection con = DriverManager.getConnection(jdbcurl, nm,  pwd);  
-             // ¶Ôcon½øĞĞ¶¯Ì¬´úÀí  
+             // å¯¹conè¿›è¡ŒåŠ¨æ€ä»£ç†  
              Object proxyedObj = Proxy.newProxyInstance(MyConnectionpool.class.getClassLoader(),  
                      new Class[] { Connection.class }, new InvocationHandler() {  
                          public Object invoke(Object proxy, Method method,Object[] args) throws Throwable {  
-                             // ÊÇ·ñÊÇclose·½·¨  
+                             // æ˜¯å¦æ˜¯closeæ–¹æ³•  
                              if (method.getName().equals("close")) {  
                                  synchronized (pool) {  
-                                     pool.addLast((Connection) proxy);//Á´½ÓÍù×îºó·ÅËÙ¶È×î¿ì  
+                                     pool.addLast((Connection) proxy);//é“¾æ¥å¾€æœ€åæ”¾é€Ÿåº¦æœ€å¿«  
                                      pool.notify();  
                                  }  
-                                 return null;// Èç¹ûµ÷ÓÃµÄÊÇcloseÔò²»»áµ÷ÓÃ±»´úÀíÀàµÄ·½·¨¡£  
+                                 return null;// å¦‚æœè°ƒç”¨çš„æ˜¯closeåˆ™ä¸ä¼šè°ƒç”¨è¢«ä»£ç†ç±»çš„æ–¹æ³•ã€‚  
                              }  
                              return method.invoke(con, args);  
                          }  
                      });  
-             // ½«´úÀí¶ÔÏó·Åµ½poolÖĞ  
+             // å°†ä»£ç†å¯¹è±¡æ”¾åˆ°poolä¸­  
              pool.add((Connection) proxyedObj);  
          }  
 		} catch (IOException | ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
-			System.out.println("³õÊ¼»¯Êı¾İ¿âÅäÖÃĞÅÏ¢");
+			System.out.println("åˆå§‹åŒ–æ•°æ®åº“é…ç½®ä¿¡æ¯");
 		}
 	}
     public static Connection getConn() {  
@@ -73,10 +73,10 @@ public class MyConnectionpool {
                 } catch (InterruptedException e) {  
                     e.printStackTrace();  
                 }  
-                return getConn();//Ïß³Ì»½ĞÑÖ®ºóµİ¹é¼ÌĞøÈ¡Á´½Ó  
+                return getConn();//çº¿ç¨‹å”¤é†’ä¹‹åé€’å½’ç»§ç»­å–é“¾æ¥  
             } else {  
-                Connection con = pool.removeFirst();//È¡³öµÚÒ»¸öËÙ¶È¿ì  
-                System.err.println("»¹ÓĞ¼¸¸ö£º" + pool.size());  
+                Connection con = pool.removeFirst();//å–å‡ºç¬¬ä¸€ä¸ªé€Ÿåº¦å¿«  
+                System.err.println("è¿˜æœ‰å‡ ä¸ªï¼š" + pool.size());  
                 return con;  
             }  
         }  

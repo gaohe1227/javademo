@@ -1,11 +1,11 @@
-package Ëã·¨.ÅÅĞò;
+ package ç®—æ³•.æ’åº;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê2ÔÂ23ÈÕ
+ * 2016å¹´2æœˆ23æ—¥
  *
- * ×÷ÓÃ:Comparable°¸Àı
+ * ä½œç”¨:Comparableæ¡ˆä¾‹
  */
 public class User implements Comparable<User>{
 	private String name;

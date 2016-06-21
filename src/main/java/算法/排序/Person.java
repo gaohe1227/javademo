@@ -1,4 +1,4 @@
-package Ëã·¨.ÅÅĞò;
+ package ç®—æ³•.æ’åº;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,11 +7,11 @@ import java.util.List;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- *         2016Äê2ÔÂ23ÈÕ
+ *         2016å¹´2æœˆ23æ—¥
  *
- *         ×÷ÓÃ:Comparator°¸Àı
+ *         ä½œç”¨:Comparatoræ¡ˆä¾‹
  */
 public class Person {
 	String name;
@@ -56,9 +56,9 @@ public static void main(String[] args) {
 	  pList.add(p1);
 	  Person p2=new Person("xifei", 21);
 	  pList.add(p2);
-	  Person p3=new Person("ÊØ»¤ĞÇ", 12);
+	  Person p3=new Person("å®ˆæŠ¤æ˜Ÿ", 12);
 	  pList.add(p3);
-	  Person p4=new Person("Îó½â", 23);
+	  Person p4=new Person("è¯¯è§£", 23);
 	  pList.add(p4);
 	  for (Person person : pList) {
 		System.out.print(person);

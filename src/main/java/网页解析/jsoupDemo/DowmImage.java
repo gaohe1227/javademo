@@ -1,4 +1,4 @@
-package ÍøÒ³½âÎö.jsoupDemo;
+ package ç½‘é¡µè§£æ.jsoupDemo;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -19,11 +19,11 @@ import org.jsoup.select.Elements;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- *  2016Äê3ÔÂ9ÈÕ
+ *  2016å¹´3æœˆ9æ—¥
  *
- *  ×÷ÓÃ:ÏÂÔØÍ¼Æ¬
+ *  ä½œç”¨:ä¸‹è½½å›¾ç‰‡
  */
 public class DowmImage {
 	static Logger log = Logger.getLogger(DowmImage.class);
@@ -76,8 +76,8 @@ public class DowmImage {
 			url = new URL(htmlUrl);
 			urlConnection = url.openConnection();
 			urlConnection.setConnectTimeout(500000);
-			isr = new InputStreamReader(urlConnection.getInputStream(), encoding);// ½¨Á¢Ğ´ÈëÁ÷
-			reader = new BufferedReader(isr);// ½¨Á¢Ò»¸ö»º³åĞ´ÈëÁ÷
+			isr = new InputStreamReader(urlConnection.getInputStream(), encoding);// å»ºç«‹å†™å…¥æµ
+			reader = new BufferedReader(isr);// å»ºç«‹ä¸€ä¸ªç¼“å†²å†™å…¥æµ
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				stringBuffer.append(line + "\r\n");
@@ -113,7 +113,7 @@ public class DowmImage {
 		public DownImg(String imgUrl) {
 			super();
 			this.imgUrl = imgUrl;
-			file = new File("F:/Í¼Æ¬/" + imgUrl.substring(imgUrl.lastIndexOf("/")));
+			file = new File("F:/å›¾ç‰‡/" + imgUrl.substring(imgUrl.lastIndexOf("/")));
 		}
 
 		@Override
@@ -151,7 +151,7 @@ public class DowmImage {
 						out.close();
 
 					}
-					System.out.println("ÏÂÔØ:"+this.imgUrl+"½áÊø");
+					System.out.println("ä¸‹è½½:"+this.imgUrl+"ç»“æŸ");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					/* e.printStackTrace(); */

@@ -1,13 +1,13 @@
-package ¶àÏß³Ì;
+package å¤šçº¿ç¨‹;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ15ÈÕ
+ * 2016å¹´6æœˆ21æ—¥
  *
- * ×÷ÓÃ:Éú²úÕßºÍÏû·ÑÕß°¸Àı
+ * ä½œç”¨:ç”Ÿäº§è€…å’Œæ¶ˆè´¹è€…æ¡ˆä¾‹
  */
-public class Éú²úÕßºÍÏû·ÑÕß {
+public class ç”Ÿäº§è€…å’Œæ¶ˆè´¹è€… {
 	public static void main(String[] args) {
 		Info f=new Info();
 		Producer p=new Producer(f);
@@ -18,14 +18,14 @@ public class Éú²úÕßºÍÏû·ÑÕß {
 
 }
 class Info{
-	private String name="ÀîĞË»ª";
-	private String content="JAVA½²Ê¦";
+	private String name="æå…´å";
+	private String content="JAVA";
 	boolean flag=false;
 	public String getName() {
 		return name;
 	}
 	/**\
-	 * ÉèÖÃÖµ
+	 * è®¾ç½®å€¼
 	 * @param name
 	 * @param content
 	 */
@@ -41,8 +41,7 @@ class Info{
 			
 	 }
 	 this.name = name;
-	this.content = content;
-	System.out.println("Éú²ú");
+	this.content = content; 
 	flag=false;
 	super.notify();	
 	 
@@ -79,11 +78,11 @@ class Info{
 }
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ15ÈÕ
+ * 2016å¹´6æœˆ21æ—¥
  *
- * ×÷ÓÃ:Éú²úÕß
+ * ä½œç”¨:ç”Ÿäº§è€…
  */
 class Producer implements Runnable{
  private Info info;
@@ -95,13 +94,11 @@ class Producer implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 		boolean flag=false;
-		/**
-		 * Éú²úĞÅÏ¢
-		 */
+		 
 		for(int i=0;i<50;i++){
 			 
 			if(flag){
-				this.info.set("ÀîĞË»ª","JAVA½²Ê¦"); 
+				this.info.set("æå…´å","JAVA"); 
 				flag=false; 
 			}else{
 				this.info.set("mldn","www.mldnjava.cn"); 
@@ -112,13 +109,13 @@ class Producer implements Runnable{
 	}
 	
 }
-/**]
+/**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ15ÈÕ
+ * 2016å¹´6æœˆ21æ—¥
  *
- * ×÷ÓÃ:Ïû·ÑÕß
+ * ä½œç”¨:æ¶ˆè´¹è€…
  */
 class Customer implements Runnable{
 	 private Info info;
@@ -137,8 +134,8 @@ class Customer implements Runnable{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				 //System.out.println(this.info.getName()+"------>"+this.info.getContent());//È¡³öĞÅÏ¢
-				 this.info.get();//È¡³öĞÅÏ¢
+				 
+				 this.info.get();//å–å€¼
 		}
 		
 	}

@@ -1,4 +1,4 @@
-package ·´Éä.¶¯Ì¬´úÀí;
+ package åå°„.åŠ¨æ€ä»£ç†;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,18 +14,18 @@ import javax.tools.ToolProvider;
 import org.apache.commons.io.FileUtils;
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * ×÷ÓÃ:×Ô¶¨ÒåÓÃÀ´»ñÈ¡¶¯Ì¬´úÀí¶ÔÏóµÄÀà
+ * ä½œç”¨:è‡ªå®šä¹‰ç”¨æ¥è·å–åŠ¨æ€ä»£ç†å¯¹è±¡çš„ç±»
  *
- * 2015Äê11ÔÂ4ÈÕ
+ * 2015å¹´11æœˆ4æ—¥
  */
 public class ProxyDemo {
 	/**
-	 * »ñÈ¡´úÀíÀà
+	 * è·å–ä»£ç†ç±»
 	 * 
 	 * @param inter
-	 *            :½Ó¿Ú
+	 *            :æ¥å£
 	 * @return
 	 * @throws IOException
 	 * @throws ClassNotFoundException 
@@ -56,13 +56,13 @@ public class ProxyDemo {
 
 		}
 
-		str += "package Ä£Ê½.´úÀí;" + rt 
+		str += "package æ¨¡å¼.ä»£ç†;" + rt 
 		      +"import java.lang.reflect.Method;"+rt
-		      +"import Ä£Ê½.´úÀí.MyInvocationHandler;"+rt
+		      +"import æ¨¡å¼.ä»£ç†.MyInvocationHandler;"+rt
 				+ "/**" 
-				+ rt + "*" + rt + "* @author ¸ßº×"
-				+ rt + "*" + rt + "* ×÷ÓÃ:¾ÛºÏ·½Ê½ÊµÏÖ¾²Ì¬´úÀí" + rt + "*" + rt
-				+ "* 2015Äê11ÔÂ4ÈÕ" + rt + "*/ " + rt
+				+ rt + "*" + rt + "* @author é«˜é¹¤"
+				+ rt + "*" + rt + "* ä½œç”¨:èšåˆæ–¹å¼å®ç°é™æ€ä»£ç†" + rt + "*" + rt
+				+ "* 2015å¹´11æœˆ4æ—¥" + rt + "*/ " + rt
 
 				+ "public class $Proxy0 implements " + inter.getName() + "{"+ rt  
 				
@@ -77,24 +77,24 @@ public class ProxyDemo {
            +methodStr+rt
 				+ "}" ;
 		/**
-		 * Éú³É´úÀíÀàµÄjavaÎÄ¼ş
+		 * ç”Ÿæˆä»£ç†ç±»çš„javaæ–‡ä»¶
 		 */
 		String fileName = System.getProperty("user.dir")
-				+ "/bin/Ä£Ê½/´úÀí/$Proxy0.java";
+				+ "/bin/æ¨¡å¼/ä»£ç†/$Proxy0.java";
 		System.out.println(fileName);
 		File file = new File(fileName);
-		FileUtils.writeStringToFile(file, str);// Éú³É´øÓĞÖ¸¶¨Êı¾İµÄÎÄ¼ş
+		FileUtils.writeStringToFile(file, str);// ç”Ÿæˆå¸¦æœ‰æŒ‡å®šæ•°æ®çš„æ–‡ä»¶
 		/**
-		 * ±àÒë
+		 * ç¼–è¯‘
 		 */
-		JavaCompiler javaCompiler = ToolProvider.getSystemJavaCompiler();// »ñÈ¡µ±Ç°ÏµÍ³Ìá¹©µÄjava±àÒëÆ÷
-		StandardJavaFileManager fileManager=javaCompiler.getStandardFileManager(null, null, null);//Éú³ÉÎÄ¼ş¹ÜÀíÕß
-		Iterable units= fileManager.getJavaFileObjects(fileName);//»ñÈ¡ÎÄ¼ş
-		CompilationTask task=  javaCompiler.getTask(null, fileManager, null, null, null, units);//Éú³É±àÒëÈÎÎñ
-        task.call();//½øĞĞ±àÒë\
+		JavaCompiler javaCompiler = ToolProvider.getSystemJavaCompiler();// è·å–å½“å‰ç³»ç»Ÿæä¾›çš„javaç¼–è¯‘å™¨
+		StandardJavaFileManager fileManager=javaCompiler.getStandardFileManager(null, null, null);//ç”Ÿæˆæ–‡ä»¶ç®¡ç†è€…
+		Iterable units= fileManager.getJavaFileObjects(fileName);//è·å–æ–‡ä»¶
+		CompilationTask task=  javaCompiler.getTask(null, fileManager, null, null, null, units);//ç”Ÿæˆç¼–è¯‘ä»»åŠ¡
+        task.call();//è¿›è¡Œç¼–è¯‘\
         fileManager.close();
-          ClassLoader cl=ClassLoader.getSystemClassLoader();//»ñÈ¡Àà¼ÓÔØÆ÷
-        Class c=  cl.loadClass("Ä£Ê½.´úÀí.$Proxy0");//½«Àà¼ÓÔØµ½ÄÚ´æ
+          ClassLoader cl=ClassLoader.getSystemClassLoader();//è·å–ç±»åŠ è½½å™¨
+        Class c=  cl.loadClass("æ¨¡å¼.ä»£ç†.$Proxy0");//å°†ç±»åŠ è½½åˆ°å†…å­˜
         System.out.println(c.getName());
         Constructor constructor=c.getConstructor(MyInvocationHandler.class);
        return constructor.newInstance(h);

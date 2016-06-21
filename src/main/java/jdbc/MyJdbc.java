@@ -1,4 +1,4 @@
-package jdbc;
+ package jdbc;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,15 +26,15 @@ import java.sql.Connection;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê3ÔÂ31ÈÕ
+ * 2016å¹´3æœˆ31æ—¥
  *
- * ×÷ÓÃ:×ÔÓÃµÄÊµÌåÀàÉú³ÉÆ÷
+ * ä½œç”¨:è‡ªç”¨çš„å®ä½“ç±»ç”Ÿæˆå™¨
  */
 public class MyJdbc {
 	static Map<String, List<Column>> tbs = new HashMap<>();;
-	static Properties properties = new Properties();// ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+	static Properties properties = new Properties();// è¯»å–é…ç½®æ–‡ä»¶
 	static String driverName = null;
 	static String url = null;
 	static String userName = null;
@@ -51,7 +51,7 @@ public class MyJdbc {
 	        String configfile = arguments.get(CONFIG_FILE);
 	        File rootFile=new File(System.getProperty("user.dir"));
 	  
-	        File  configurationFile= new File(rootFile+File.separator+configfile);//»ñÈ¡ÅäÖÃÎÄ¼ş   
+	        File  configurationFile= new File(rootFile+File.separator+configfile);//è·å–é…ç½®æ–‡ä»¶   
 			InputStream in =new FileInputStream(configurationFile); 
 			properties.load(in);
 			in.close();
@@ -62,22 +62,22 @@ public class MyJdbc {
 			password = properties.getProperty("password");
 			packageLocaltion = properties.getProperty("package");
 			if (null == packageLocaltion || packageLocaltion.trim().equals("")) {
-				throw new Exception("ÇëÊäÈë°üÃû");
+				throw new Exception("è¯·è¾“å…¥åŒ…å");
 			}
 
 			database = properties.getProperty("database");
 			properties.clear();
 
-			Class.forName(driverName);// ¼ÓÔØÇı¶¯
-			System.out.println("¼ÓÔØÇı¶¯Íê±Ï");
+			Class.forName(driverName);// åŠ è½½é©±åŠ¨
+			System.out.println("åŠ è½½é©±åŠ¨å®Œæ¯•");
 			basepath = System.getProperty("user.dir") + File.separator + packageLocaltion;
 			File file = new File(basepath);
 			if (!file.exists()) {
 				boolean flag = file.mkdir(); 
-				System.out.println("´´½¨Ä¿Â¼"+file.getName());
+				System.out.println("åˆ›å»ºç›®å½•"+file.getName());
 				Thread.sleep(1000);
 			}
-			Connection connection = DriverManager.getConnection(url, userName, password);// Á¬½ÓÊı¾İ¿â
+			Connection connection = DriverManager.getConnection(url, userName, password);// è¿æ¥æ•°æ®åº“
 			PreparedStatement statement = connection.prepareStatement("show tables");
 			ResultSet resultSet = statement.executeQuery();
 			List<Table> tables = new ArrayList<>();
@@ -124,7 +124,7 @@ public class MyJdbc {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Á¬½ÓÊ§°Ü");
+			System.out.println("è¿æ¥å¤±è´¥");
 			e.printStackTrace();
 		}
 	}
@@ -209,7 +209,7 @@ public class MyJdbc {
 				writer.write(buffer.toString());
 				writer.flush();
 				writer.close();
-				System.err.println("Éú³É" + file.getAbsolutePath() + "½áÊø");
+				System.err.println("ç”Ÿæˆ" + file.getAbsolutePath() + "ç»“æŸ");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

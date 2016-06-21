@@ -1,8 +1,8 @@
-package Ëã·¨.ÅÅĞò;
+ package ç®—æ³•.æ’åº;
 
 public class Demo {
    /**
-    * Ã°ÅİÅÅĞò
+    * å†’æ³¡æ’åº
     * @param a
     */
 	public static void  sort1(int[] a){
@@ -21,7 +21,7 @@ public class Demo {
 		
 	}
 	/**
-	 * ²åÈëÅÅĞò
+	 * æ’å…¥æ’åº
 	 * @param a
 	 */
 	public static void  sort2(int[] a){
@@ -40,7 +40,7 @@ public class Demo {
 	}
 	
 	/**
-	 * Ñ¡ÔñÅÅĞò
+	 * é€‰æ‹©æ’åº
 	 * @param a
 	 */
 	public static void sort3(int[] a) {

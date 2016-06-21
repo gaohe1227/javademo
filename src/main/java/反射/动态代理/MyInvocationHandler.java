@@ -1,4 +1,4 @@
-package ·´Éä.¶¯Ì¬´úÀí;
+ package åå°„.åŠ¨æ€ä»£ç†;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -6,35 +6,35 @@ import java.lang.reflect.Proxy;
 
 /**
  * 
- * @author ¸ßº×
+ * @author é«˜é¹¤
  *
- * 2016Äê6ÔÂ13ÈÕ
+ * 2016å¹´6æœˆ13æ—¥
  *
- * ×÷ÓÃ:¶¯Ì¬´úÀí°²Àû
+ * ä½œç”¨:åŠ¨æ€ä»£ç†å®‰åˆ©
  */
 public class MyInvocationHandler {
-	private Object obj;        //ÕæÊµÖ÷Ìâ
+	private Object obj;        //çœŸå®ä¸»é¢˜
 	
      public Object bind(Object obj){
-	  this.obj=obj;//ÕæÊµ¶ÔÏó
+	  this.obj=obj;//çœŸå®å¯¹è±¡
 	  return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), new InvocationHandler() {
 		
 		@Override
 		public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 			// TODO Auto-generated method stub
-			return method.invoke(obj, args);//ÊµÏÖÕæÊµ¶ÔÏóµÄ·½·¨
+			return method.invoke(obj, args);//å®ç°çœŸå®å¯¹è±¡çš„æ–¹æ³•
 		}
-	});//È¡µÃ´úÀí¶ÔÏó
+	});//å–å¾—ä»£ç†å¯¹è±¡
     }
 	  
  
  
 }
 class MyInvocationHandler1 implements InvocationHandler{
-	private Object obj;        //ÕæÊµÖ÷Ìâ
+	private Object obj;        //çœŸå®ä¸»é¢˜
 	 public Object bind(Object obj){
 		  this.obj=obj;
-		  return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(),  this);//È¡µÃ´úÀí¶ÔÏó
+		  return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(),  this);//å–å¾—ä»£ç†å¯¹è±¡
 	    }
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

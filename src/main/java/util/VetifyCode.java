@@ -1,4 +1,4 @@
-package util;
+ package util;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -18,16 +18,16 @@ import javax.servlet.http.HttpServletResponse;
 
  /**
   * 
-  * @author ¸ßº×
+  * @author é«˜é¹¤
   *
-  * 2015Äê12ÔÂ29ÈÕ
+  * 2015å¹´12æœˆ29æ—¥
   *
-  * ×÷ÓÃ:×Ô¶¨ÒåÑéÖ¤Âë°¸Àı
+  * ä½œç”¨:è‡ªå®šä¹‰éªŒè¯ç æ¡ˆä¾‹
   */
 public class VetifyCode extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static int WIDTH=70;//ÑéÖ¤ÂëµÄ¿í¶È
-	private static int HEIGHT=20;//ÑéÖ¤ÂëµÄ¸ß¶È
+	private static int WIDTH=70;//éªŒè¯ç çš„å®½åº¦
+	private static int HEIGHT=20;//éªŒè¯ç çš„é«˜åº¦
 
     /**
      * Default constructor. 
@@ -57,32 +57,32 @@ public class VetifyCode extends HttpServlet {
 		// TODO Auto-generated method stub
 	/*	response.getWriter().append("Served at: ").append(request.getContextPath());*/
 		/**\
-		 * ½¨Á¢Ò»¸öÍ¼Ïñ»º³åÇø
+		 * å»ºç«‹ä¸€ä¸ªå›¾åƒç¼“å†²åŒº
 		 */
 		BufferedImage image=new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_3BYTE_BGR);
-		Graphics g=	image.getGraphics();//»ñÈ¡»­±Ê¹¤¾ß
-		g.setColor(new Color(255));//ÉèÖÃ±³¾°ÑÕÉ«
-		g.fillRect(0, 0, WIDTH, HEIGHT);//»æÖÆ»­²¼³ß´ç
+		Graphics g=	image.getGraphics();//è·å–ç”»ç¬”å·¥å…·
+		g.setColor(new Color(255));//è®¾ç½®èƒŒæ™¯é¢œè‰²
+		g.fillRect(0, 0, WIDTH, HEIGHT);//ç»˜åˆ¶ç”»å¸ƒå°ºå¯¸
 		Random random=new Random();
-		//¿ªÊ¼»æÖÆÑéÖ¤Âë
+		//å¼€å§‹ç»˜åˆ¶éªŒè¯ç 
 		StringBuilder s=new StringBuilder();
 		for (int i = 0; i < 5; i++) {
-			int num=random.nextInt(10);//Éú³É1µ½9Ö®¼äµÄÕûÊı
-			char c=(char)(random.nextInt(26)+65);//Ëæ»úÉú³ÉA~ZÖ®¼äµÄ×ÖÄ¸
+			int num=random.nextInt(10);//ç”Ÿæˆ1åˆ°9ä¹‹é—´çš„æ•´æ•°
+			char c=(char)(random.nextInt(26)+65);//éšæœºç”ŸæˆA~Zä¹‹é—´çš„å­—æ¯
 			String str[]=new String[2];
 			str[0]=String.valueOf(num);
 			str[1]=String.valueOf(c);
 			s.append(str[random.nextInt(2)]); 
 		}
-		g.setColor(new Color(255, 255, 100));//ÉèÖÃÑéÖ¤ÂëµÄÑÕÉ«
-		g.setFont(new Font(null, Font.ITALIC, 20));//ÉèÖÃÑéÖ¤ÂëµÄ×ÖÌå
+		g.setColor(new Color(255, 255, 100));//è®¾ç½®éªŒè¯ç çš„é¢œè‰²
+		g.setFont(new Font(null, Font.ITALIC, 20));//è®¾ç½®éªŒè¯ç çš„å­—ä½“
 		System.err.println(s.toString());
-		g.drawString(s.toString(), 4, 18);//»æÖÆÖ¸¶¨µÄ×Ö·û´®µÄµ½ImageÍ¼Æ¬ÉÏ
+		g.drawString(s.toString(), 4, 18);//ç»˜åˆ¶æŒ‡å®šçš„å­—ç¬¦ä¸²çš„åˆ°Imageå›¾ç‰‡ä¸Š
 		for (int i = 0; i < 6; i++) {
 			g.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
-			g.drawLine(random.nextInt(WIDTH), random.nextInt(HEIGHT),random.nextInt(WIDTH), random.nextInt(HEIGHT));//»­Ïß
+			g.drawLine(random.nextInt(WIDTH), random.nextInt(HEIGHT),random.nextInt(WIDTH), random.nextInt(HEIGHT));//ç”»çº¿
 		}
-		response.setContentType("image/jpeg");//±íÊ¾Êä³öµÄÊÇÒ»ÕÅÍ¼Æ¬
+		response.setContentType("image/jpeg");//è¡¨ç¤ºè¾“å‡ºçš„æ˜¯ä¸€å¼ å›¾ç‰‡
 		OutputStream out=response.getOutputStream();
 		ImageIO.write(image, "jpeg", out);
 		out.flush();

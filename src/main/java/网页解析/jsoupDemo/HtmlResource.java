@@ -1,4 +1,5 @@
-package ÍøÒ³½âÎö.jsoupDemo;
+ 
+package ç½‘é¡µè§£æ.jsoupDemo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,10 +28,10 @@ public class HtmlResource {
 		URLConnection urlConnection = null;
 		BufferedReader reader = null;
 		try {
-			url = new URL(htmlUrl);// ½¨Á¢ÍøÂçÁ¬½Ó
-			urlConnection = url.openConnection();// ¿ªÆôÍøÂçÁ¬½Ó
-			isr = new InputStreamReader(urlConnection.getInputStream(), encoding);// ½¨Á¢Ğ´ÈëÁ÷
-			reader = new BufferedReader(isr);// ½¨Á¢Ò»¸ö»º³åĞ´ÈëÁ÷
+			url = new URL(htmlUrl);// å»ºç«‹ç½‘ç»œè¿æ¥
+			urlConnection = url.openConnection();// å¼€å¯ç½‘ç»œè¿æ¥
+			isr = new InputStreamReader(urlConnection.getInputStream(), encoding);// å»ºç«‹å†™å…¥æµ
+			reader = new BufferedReader(isr);// å»ºç«‹ä¸€ä¸ªç¼“å†²å†™å…¥æµ
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				stringBuffer.append(line + "\r\n");
@@ -39,7 +40,7 @@ public class HtmlResource {
 		} catch (IOException e) {
 			// TODO Auto-generated catch blockwang
 			e.printStackTrace();
-			return "ÍøÂçÁ¬½ÓÊ§°Ü»òÊäÈëÍøÖ·²»ÕıÈ·,ÇëÖØÊÔ";
+			return "ç½‘ç»œè¿æ¥å¤±è´¥æˆ–è¾“å…¥ç½‘å€ä¸æ­£ç¡®,è¯·é‡è¯•";
 		} finally {
 			try {
 				urlConnection = null;
