@@ -3,6 +3,6 @@
  *
  * 2016年6月22日
  *
- * 作用:shiro案例
+ * 作用:
  */
-package shiro;
+package shiro.servlet;

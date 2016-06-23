@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.shiro.dao.RolespermissionsDao">
+	<resultMap id="BaseResultMap" type="com.demo.shiro.entity.Rolespermissions">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="role_name" property="role_name" jdbcType="VARCHAR" />
+		<result column="permission" property="permission" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		 id as id,
+		 role_name as role_name,
+		 permission as permission
+	</sql>
+
+	<sql id="Base_Where_Clause">
+		<where>
+			<trim prefixOverrides="and|or">
+				<if test="id != null"> and id = #{id}</if>
+				<if test="role_name != null"> and role_name = #{role_name}</if>
+				<if test="permission != null"> and permission = #{permission}</if>
+				<if test="searchWhere != null"> ${searchWhere}</if>
+			</trim>
+		</where>
+		<if test="page != null">
+			limit ${page.First}, ${page.Pagesize}
+		</if>
+	</sql>
+
+	<sql id="Base_Where_Json">
+		<where>
+			<trim prefixOverrides="and|or">
+				<if test="id != null">  and id ${id.dataOp} ${id.likestar}#{id.value}${id.likeend}</if>
+				<if test="role_name != null">  and role_name ${role_name.dataOp} ${role_name.likestar}#{role_name.value}${role_name.likeend}</if>
+				<if test="permission != null">  and permission ${permission.dataOp} ${permission.likestar}#{permission.value}${permission.likeend}</if>
+				<if test="searchWhere != null"> ${searchWhere}</if>
+			</trim>
+		</where>
+		<if test="page != null">
+			limit ${page.First}, ${page.Pagesize}
+		</if>
+	</sql>
+
+	<select id="selectCountJson" resultType="java.lang.Long" parameterType="java.util.Map">
+		select count(id) from roles_permissions
+		<include refid="Base_Where_Json" />
+	</select>
+
+	<select id="selectListJson" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List"/>
+		from roles_permissions
+		<include refid="Base_Where_Json" />
+	</select>
+
+	<select id="selectCount" resultType="java.lang.Long" parameterType="java.util.Map">
+		select count(id) from roles_permissions
+		<include refid="Base_Where_Clause" />
+	</select>
+
+	<select id="selectList" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List"/>
+		from roles_permissions
+		<include refid="Base_Where_Clause" />
+	</select>
+
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List"/>
+		from roles_permissions
+		where id = #{id}
+	</select>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		delete from roles_permissions
+		where id = #{id}
+	</delete>
+
+	<delete id="delete" parameterType="java.util.Map">
+		delete from roles_permissions
+		<include refid="Base_Where_Clause" />
+	</delete>
+
+	<insert id="insert" parameterType="com.demo.shiro.entity.Rolespermissions">
+		insert into roles_permissions(
+			id,
+			role_name,
+			permission
+		)
+		values(
+			#{id,jdbcType=VARCHAR},
+			#{role_name,jdbcType=VARCHAR},
+			#{permission,jdbcType=VARCHAR}
+		)		
+	</insert>
+
+	<update id="updateById" parameterType="com.demo.shiro.entity.Rolespermissions">
+		update roles_permissions 
+		set role_name=			#{role_name,jdbcType=VARCHAR},
+		permission=			#{permission,jdbcType=VARCHAR}
+		where id = #{id}
+	</update>
+
+	<update id="updateByIdSelective" parameterType="com.demo.shiro.entity.Rolespermissions">
+		update roles_permissions 
+ 		<set>
+			<if test="role_name != null">role_name = #{role_name,jdbcType=VARCHAR},</if>
+			<if test="permission != null">permission = #{permission,jdbcType=VARCHAR},</if>
+		</set>
+		where id = #{id}
+	</update>
+
+</mapper>
