@@ -1,0 +1,45 @@
+<!-- 配置文件ehcache.xml中命名为demoCache的缓存配置： -->
+ <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+    updateCheck="true" monitoring="autodetect"
+    dynamicConfig="true">
+
+    <defaultCache
+       maxElementsInMemory="20"
+       eternal="false"
+       overflowToDisk="false"
+       timeToIdleSeconds="1800"
+       timeToLiveSeconds="1800">
+    </defaultCache>
+
+    <cache name="data-cache"
+      maxElementsInMemory="20"
+      overflowToDisk="false"
+      eternal="false"
+      timeToIdleSeconds="1800"
+      timeToLiveSeconds="1800"
+      memoryStoreEvictionPolicy="LRU"
+      transactionalMode="off"
+       >
+   <searchable keys="true"/> <!--可以根据Key进行查询，查询的Attribute就是keys-->
+    </cache>
+      <cache name="data-cache1"
+      maxElementsInMemory="20"
+      overflowToDisk="false"
+      eternal="false"
+      timeToIdleSeconds="1800"
+      timeToLiveSeconds="1800"
+      memoryStoreEvictionPolicy="LRU"
+      transactionalMode="off"
+       >
+   <searchable keys="true"/> <!--可以根据Key进行查询，查询的Attribute就是keys-->
+    </cache>
+</ehcache>
+<!-- 各配置参数的含义：
+maxElementsInMemory：缓存中允许创建的最大对象数
+eternal：缓存中对象是否为永久的，如果是，超时设置将被忽略，对象从不过期。
+timeToIdleSeconds：缓存数据的钝化时间，也就是在一个元素消亡之前，两次访问时间的最大时间间隔值，这只能在元素不是永久驻留时有效，如果该值是 0 就意味着元素可以停顿无穷长的时间。
+timeToLiveSeconds：缓存数据的生存时间，也就是一个元素从构建到消亡的最大时间间隔值，这只能在元素不是永久驻留时有效，如果该值是0就意味着元素可以停顿无穷长的时间。
+overflowToDisk：内存不足时，是否启用磁盘缓存。
+memoryStoreEvictionPolicy：缓存满了之后的淘汰算法。LRU和FIFO算法这里就不做介绍。LFU算法直接淘汰使用比较少的对象，在内存保留的都是一些经常访问的对象。对于大部分网站项目，该算法比较适用。
+如果应用需要配置多个不同命名并采用不同参数的Cache，可以相应修改配置文件，增加需要的Cache配置即可。 -->
