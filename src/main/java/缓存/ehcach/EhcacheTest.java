@@ -22,6 +22,8 @@ public class EhcacheTest {
 	public static void main(String[] args) {
 		/*demo1();*/
 		demo2();
+		System.out.println("--------------------------------------------------");
+		System.out.println(System.getProperty("user.dir")+"------------------"+System.getProperty("user.home")+"----"+System.getProperty("java.io.tmpdir"));
 	}
    /**
     * 测试案例1
