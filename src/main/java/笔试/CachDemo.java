@@ -6,11 +6,11 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * 
- * @author 高鹤
+ * @author 楂橀工
  *
- * 2016年6月16日
+ * 2016骞�6鏈�16鏃�
  *
- * 作用:自定义缓存类的例子
+ * 浣滅敤:鑷畾涔夌紦瀛樼被鐨勪緥瀛�
  */
 public class CachDemo {
 	private Map<String,Object> cache=new HashMap();
