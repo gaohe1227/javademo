@@ -1,0 +1,41 @@
+<ehcache updateCheck="false" dynamicConfig="false">
+  <diskStore path="d:\\ehcache\\tmpdir"/>
+   <defaultCache
+        maxElementsInMemory="1000"
+        eternal="false"
+        timeToIdleSeconds="1200000"
+        timeToLiveSeconds="1200000"
+        overflowToDisk="true"
+        />
+
+    <cache name="icache-global"
+        maxElementsInMemory="1"
+        maxElementsOnDisk="1"
+        eternal="true"
+        timeToIdleSeconds="1800"
+        timeToLiveSeconds="1800"
+        overflowToDisk="true"
+        />
+   
+    <!-- 测试用 -->
+    <cache name="SimplePageCachingFilter"
+           maxElementsInMemory="10"     
+           maxElementsOnDisk="10"       
+           eternal="false"
+           overflowToDisk="true"
+           timeToIdleSeconds="100"
+           timeToLiveSeconds="30"
+           memoryStoreEvictionPolicy="LFU"
+            />
+   
+    <cache name="SimplePageFragmentCachingFilter"
+           maxElementsInMemory="1"
+           maxElementsOnDisk="1"
+           eternal="false"
+           overflowToDisk="true"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"
+            />
+           
+</ehcache>
