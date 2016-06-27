@@ -21,7 +21,7 @@ public class RedisShardPoolTest {
 	    static{
 	        JedisPoolConfig config =new JedisPoolConfig();//Jedis池配置
 	        config.setMaxIdle(500);//最大活动的对象个数
-	        config.setMaxIdle(1000 * 60);//对象最大空闲时间
+	        config.setMaxTotal(1000 * 60);//对象最大空闲时间
 	        config.setMaxWaitMillis(1000 * 10);//获取对象时最大等待时间
 	        config.setTestOnBorrow(true);
 	        String hostA = "192.168.0.100";
