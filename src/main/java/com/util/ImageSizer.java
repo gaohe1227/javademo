@@ -16,10 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGEncodeParam;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+ 
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -175,10 +172,10 @@ public class ImageSizer {
 		 *	Forbidden references(accessrules)选为Warning就可以编译通过。
          */
     
-        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out); 
+/*        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out); 
         JPEGEncodeParam param = encoder.getDefaultJPEGEncodeParam(bufferedImage); 
         param.setQuality(quality, true); 
         encoder.setJPEGEncodeParam(param);
-        encoder.encode(bufferedImage);
+        encoder.encode(bufferedImage);*/
     }
 }
