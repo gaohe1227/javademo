@@ -152,5 +152,110 @@ public class EnumUtils {
 		}
 		return null;
 	}
+	public static Enum getEnum(Class<? extends Enum> clazz, Integer ordinal){
+		if(!clazz.isEnum()) return null;
+		Enum[] enums = clazz.getEnumConstants();
+		for(Enum e : enums){
+			if(e.ordinal() == ordinal){
+				return e;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * 将枚举中的值转换为相应的名称字符串列表
+	 * @param clazz
+	 * @return
+	 */
+	public static List<String> getEnumNames(Class<? extends Enum> clazz){
+		if(!clazz.isEnum()) return null;
+		Enum[] enums = clazz.getEnumConstants();
+		List<String> enumNames = new ArrayList<String>();
+		for(Enum e : enums){
+			enumNames.add(e.name());
+		}
+		return enumNames;
+	}
+	
+	/**
+	 * 将枚举中的值转换为一组序数列表
+	 * @param clazz
+	 * @return
+	 */
+	public static List<Integer> getEnumOrdinals(Class<? extends Enum> clazz){
+		if(!clazz.isEnum()) return null;
+		Enum[] enums = clazz.getEnumConstants();
+		List<Integer> enumNames = new ArrayList<Integer>();
+		for(Enum e : enums){
+			enumNames.add(e.ordinal());
+		}
+		return enumNames;
+	}
+	
+	/**
+	 *  将枚举中的值转换为序号和名称的map
+	 * @param clazz
+	 * @return
+	 */
+	public static Map<Integer, String> getEnumMap(Class<? extends Enum> clazz){
+		if(!clazz.isEnum()) return null;
+		Enum[] enums = clazz.getEnumConstants();
+		Map<Integer, String> enumNames = new HashMap<Integer, String>();
+		for(Enum e : enums){
+			enumNames.put(e.ordinal(),e.name());
+		}
+		return enumNames;
+	}
+	
+	/**
+	 * 将枚举中的值的某个属性转换为字符串列表
+	 * @param clazz
+	 * @param propName
+	 * @return
+	 */
+	public static List<String> getEnumPropList(Class<? extends Enum> clazz, String propName){
+		if(!clazz.isEnum()) return null;
+		Enum[] enums = clazz.getEnumConstants();
+		try {
+			List<String> enumNames = new ArrayList<String>();
+			for(Enum e : enums){
+				enumNames.add((String) PropertyUtils.getProperty(e, propName));
+			}
+			return enumNames;
+		} catch (IllegalAccessException e1) {
+			e1.printStackTrace();
+		} catch (InvocationTargetException e1) {
+			e1.printStackTrace();
+		} catch (NoSuchMethodException e1) {
+			e1.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * 将枚举中的值的某个属性转换为序号和字符串列表
+	 * @param clazz
+	 * @param propName
+	 * @return
+	 */
+	public static Map<Integer, String> getEnumOrdinalPropMap(Class<? extends Enum> clazz,String propName){
+		if(!clazz.isEnum()) return null;
+		Enum[] enums = clazz.getEnumConstants();
+		try{
+				Map<Integer, String> enumNames = new HashMap<Integer, String>();
+				for(Enum e : enums){
+					enumNames.put(e.ordinal(),(String) PropertyUtils.getProperty(e, propName));
+				}
+				return enumNames;
+			} catch (IllegalAccessException e1) {
+				e1.printStackTrace();
+			} catch (InvocationTargetException e1) {
+				e1.printStackTrace();
+			} catch (NoSuchMethodException e1) {
+				e1.printStackTrace();
+			}
+		return null;
+	}
 	
 }
