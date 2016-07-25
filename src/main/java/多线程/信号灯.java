@@ -1,19 +1,12 @@
-package å¤šçº¿ç¨‹;
+package ¶àÏß³Ì;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-/**
- * 
- * @author é«˜é¹¤
- *
- * 2016å¹´6æœˆ21æ—¥
- *
- * ä½œç”¨:ä¿¡å·ç¯æ¡ˆä¾‹
- */
-public class  ä¿¡å·ç¯ {
 
-	public ä¿¡å·ç¯() {
+public class ĞÅºÅµÆ {
+
+	public ĞÅºÅµÆ() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,19 +22,19 @@ public class  ä¿¡å·ç¯ {
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
-					System.err.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + 
-							"ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½" + (3-sp.availablePermits()) + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+					System.err.println("Ïß³Ì" + Thread.currentThread().getName() + 
+							"½øÈë£¬µ±Ç°ÒÑÓĞ" + (3-sp.availablePermits()) + "¸ö²¢·¢");
 					try {
 						Thread.sleep((long)(Math.random()*10000));
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					System.out.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + 
-							"ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ª");					
+					System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
+							"¼´½«Àë¿ª");					
 					sp.release();
-					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö´ï¿½Ğ²ï¿½×¼È·ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ã»ï¿½Ğºï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½Ï³ï¿½Ô­ï¿½Óµï¿½Ôª
-					System.out.println("ï¿½ß³ï¿½" + Thread.currentThread().getName() + 
-							"ï¿½ï¿½ï¿½ë¿ªï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½" + (3-sp.availablePermits()) + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");					
+					//ÏÂÃæ´úÂëÓĞÊ±ºòÖ´ĞĞ²»×¼È·£¬ÒòÎªÆäÃ»ÓĞºÍÉÏÃæµÄ´úÂëºÏ³ÉÔ­×Óµ¥Ôª
+					System.out.println("Ïß³Ì" + Thread.currentThread().getName() + 
+							"ÒÑÀë¿ª£¬µ±Ç°ÒÑÓĞ" + (3-sp.availablePermits()) + "¸ö²¢·¢");					
 				}
 			};
 			service.execute(runnable);			
