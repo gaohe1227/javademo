@@ -1,4 +1,11 @@
 package jdk8;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
 /**
  * 
  * @author 高鹤
@@ -35,6 +42,15 @@ public class Lambda表达式 {
 
 	      greetService1.sayMessage("Mahesh");
 	      greetService2.sayMessage("Suresh");	   
+	      List<Integer> list=new ArrayList<Integer>();
+	      for(int i=0;i<10;i++){
+	    	  list.add(new Random().nextInt(100));
+	      }
+	      list.forEach(o->System.out.println(o));//Lambda表达式:forEach函数实现内部迭代
+	      System.out.println("---------------------------------------------------------");
+	      tester.distinctPrimary("12","34","12");
+	      
+	      
 	   }   
 
 	   interface MathOperation {
@@ -48,4 +64,29 @@ public class Lambda表达式 {
 	   private int operate(int a, int b, MathOperation mathOperation){
 	      return mathOperation.operation(a, b);
 	   } 
+	   /**
+	    * 处理集合(内部迭代)
+	    * @param numbers
+	    */
+	   public void distinctPrimary(String... numbers) {
+	        List<String> l = Arrays.asList(numbers);
+	        System.out.println(l);
+ 
+	       /* List<Integer> r = l.stream()
+	                .map(e -> new Integer(e))
+	                .filter(e -> Primes.isPrime(e))
+	                .distinct()
+	                .collect(Collectors.toList());*/
+	  /*      for(int i=0;i<100;i++){
+	        	l.add(String.valueOf(i));
+	        }*/
+	  
+	       
+	        List<String> r=l.stream().filter(s->{
+	        	System.out.println(s);
+	        return s.equals("12");		
+	        }).collect(Collectors.toList());
+	      
+	        System.out.println("distinctPrimary result is: " + r);
+	    }
 }
