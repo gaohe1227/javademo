@@ -45,7 +45,7 @@ public class IpDemo1 {
 
 	private static String getMyIPLocal() throws IOException {
 		InetAddress ia = InetAddress.getLocalHost();//InetAddress.getLocalHost();
-		InetAddress address = InetAddress.getByName("test.jiaopeiwang.com");//根据域名获取ip
+		InetAddress address = InetAddress.getByName("ready.jiaopeiwang.com");//根据域名获取ip
 		System.out.println("ip:---"+address.getHostAddress());
 		return ia.getHostAddress();
 	}

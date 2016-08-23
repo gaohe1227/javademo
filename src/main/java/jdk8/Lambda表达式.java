@@ -3,8 +3,13 @@ package jdk8;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import javax.sound.midi.Track;
 
 /**
  * 
@@ -50,6 +55,18 @@ public class Lambda表达式 {
 	      System.out.println("---------------------------------------------------------");
 	      tester.distinctPrimary("12","34","12");
 	      
+	      T1 t1 =(a,b)->a+b;
+	      List<Integer> list1=new ArrayList<Integer>();
+	      for(int i=0;i<10;i++){
+	    	  list1.add(new Random().nextInt(100));
+	      }
+	       
+	      MyNumber mynumber=(Stream<Integer> number)->number.reduce(0, (acc,element)->acc+element);
+	      System.out.println("和:"+mynumber.addUp(list1.stream()));
+	      OptionalDemo();
+	      System.out.println("---------------------------------------------------------"); 
+	      
+	      
 	      
 	   }   
 
@@ -89,4 +106,20 @@ public class Lambda表达式 {
 	      
 	        System.out.println("distinctPrimary result is: " + r);
 	    }
+	   /**
+	    * Optional案例
+	    */
+	   private static void OptionalDemo(){
+		   Optional<String> a=Optional.of("a");
+		   System.out.println("a".equals(a.get()));
+		   Optional emptyOptional=Optional.empty();
+		   Optional alsoEmpty=Optional.ofNullable(null);
+		   System.out.println(emptyOptional.isPresent()+"----"+alsoEmpty.isPresent()+"---"+alsoEmpty.orElse(null));
+	   }
+}
+interface T1{
+	int a(int a,int b); 
+}
+interface MyNumber{
+	int addUp(Stream<Integer> numbers);
 }
