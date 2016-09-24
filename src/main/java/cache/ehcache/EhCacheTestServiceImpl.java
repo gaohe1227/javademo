@@ -13,11 +13,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EhCacheTestServiceImpl implements EhCacheTestService {
-	
+ 
+	/**
+	 * 缓存注解
+	 */
 	@Cacheable(value="cacheTest",key="#param")
 	public String getTimestamp(String param) {
 		Long timestamp = System.currentTimeMillis();
-		System.err.println(timestamp);
+		System.err.println(timestamp+"----"+param); 
 		return timestamp.toString();
 	}
 

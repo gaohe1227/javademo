@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+
+	<aop:aspectj-autoproxy />
+	
+	
+
+
+	<!-- 数据库连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="initialSize" value="${db.initialSize}" />
+		<property name="maxActive" value="${db.maxActive}" />
+		<property name="minIdle" value="${db.minIdle}" />
+		<property name="maxWait" value="${db.maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${db.timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${db.minEvictableIdleTimeMillis}" />
+
+		<property name="removeAbandoned" value="${db.removeAbandoned}" />
+		<property name="removeAbandonedTimeout" value="${db.removeAbandonedTimeout}" />
+		<property name="logAbandoned" value="${db.logAbandoned}" />
+
+		<property name="poolPreparedStatements" value="${db.poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${db.maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="validationQuery" value="${db.validationQuery}" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="testWhileIdle" value="true" />
+	</bean>
+
+	<bean parent="dataSource" id="pub_dataSource" init-method="init">
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	<bean parent="dataSource" id="pqk_dataSource" init-method="init">
+		<property name="url" value="${qpk.db.url}" />
+		<property name="username" value="${qpk.db.username}" />
+		<property name="password" value="${qpk.db.password}" />
+	</bean>
+
+	<bean id="dynamicDataSource" class="DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry value-ref="pub_dataSource" key="pub_dataSource"></entry>
+				<entry value-ref="pqk_dataSource" key="pqk_dataSource"></entry>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="pub_dataSource"></property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dynamicDataSource" />
+		<property name="hibernateProperties">
+			<props>
+<!-- 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> -->
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+				<prop key="current_session_context_class">org.springframework.orm.hibernate3.SpringSessionContext</prop>
+			</props>
+		</property>
+		<!-- 扫描实体的注解配置 -->
+		<property name="packagesToScan" value="cn.com.hbm" />
+	</bean>
+	
+	<bean id="dynamicDataSourceInterceptor" class="DynamicDataSourceInterceptor" />
+	
+	<aop:config>
+		<aop:aspect id="dataSourceAspect" ref="dynamicDataSourceInterceptor">
+			<aop:pointcut id="pub" expression="execution(* service.*.*(..))" />
+			<aop:pointcut id="pqk" expression="execution(* service.RegisterService.*(..))" />
+			<aop:before method="setdataSourcePub" pointcut-ref="pub"/>
+			<aop:before method="setdataSourcePqk" pointcut-ref="pqk"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>
