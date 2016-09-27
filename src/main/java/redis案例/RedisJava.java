@@ -1,4 +1,4 @@
- package redis.jedis;
+ package redis案例;
 
 import java.util.HashSet;
 import java.util.Iterator;
