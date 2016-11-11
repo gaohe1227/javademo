@@ -1,6 +1,9 @@
 package 多线程.forjoin;
 
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
+
+import org.apache.log4j.chainsaw.Main;
 
 public class Calculator extends RecursiveTask<Integer> {
 
@@ -37,5 +40,10 @@ public class Calculator extends RecursiveTask<Integer> {
         }  
         return sum;  
     }  
+    public static void main(String srgs[]){
+    	Calculator calculator=new Calculator(0,10000);
+    	  ForkJoinPool forkJoinPool=new ForkJoinPool();
+    	  System.out.println(forkJoinPool.invoke(calculator));
+    }
 
 }
