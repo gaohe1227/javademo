@@ -4,7 +4,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.sun.org.apache.bcel.internal.classfile.Synthetic;
 
-import myjdbcpool.DBpool.MyConnection;
+import 数据库.连接池.自定义连接池.DBpool.MyConnection;
+ 
 
 public class Test {
      static AtomicLong threadSum=new AtomicLong(0);

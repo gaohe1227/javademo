@@ -1,6 +1,6 @@
 package util;
 
-import java.io.BufferedInputStream;
+/*import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,13 +22,13 @@ import org.apache.commons.fileupload.FileUploadBase.SizeLimitExceededException;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.fileupload.util.Streams;
+import org.apache.commons.fileupload.util.Streams;*/
    
 /**
  * @author Linxs
  */
 public class Uploader {
-	private String url = "";
+	/*private String url = "";
 	private String fileName = "";
 	private String state = "";
 	private String type = "";
@@ -121,10 +121,10 @@ public class Uploader {
 		}
 	}
 
-	/**
+	*//**
 	 * @param fileName
 	 * @return
-	 */
+	 *//*
 	private boolean checkFileType(String fileName) {
 		Iterator<String> type = Arrays.asList(this.allowFiles).iterator();
 		while (type.hasNext()) {
@@ -136,26 +136,26 @@ public class Uploader {
 		return false;
 	}
 
-	/**
+	*//**
 	 * 
 	 * @return string
-	 */
+	 *//*
 	private String getFileExt(String fileName) {
 		return fileName.substring(fileName.lastIndexOf("."));
 	}
 
-	/**
+	*//**
 	 * @return
-	 */
+	 *//*
 	private String getName(String fileName) {
 		Random random = new Random();
 		return this.fileName = "" + random.nextInt(10000) + System.currentTimeMillis() + this.getFileExt(fileName);
 	}
 
-	/**
+	*//**
 	 * @param path
 	 * @return
-	 */
+	 *//*
 	private String getFolder(String path) {
 		SimpleDateFormat formater = new SimpleDateFormat("yyyyMMdd");
 		path += "/" + formater.format(new Date());
@@ -171,11 +171,11 @@ public class Uploader {
 		return path;
 	}
 
-	/**
+	*//**
 	 * 
 	 * @param path
 	 * @return
-	 */
+	 *//*
 	private String getPhysicalPath(String path) {
 		String servletPath = this.request.getServletPath();
 		String realPath = this.request.getSession().getServletContext().getRealPath(servletPath);
@@ -220,5 +220,5 @@ public class Uploader {
 
 	public String getOriginalName() {
 		return this.originalName;
-	}
+	}*/
 }

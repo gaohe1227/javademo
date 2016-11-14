@@ -1,4 +1,4 @@
-package 多线程;
+package 多线程.队列;
 
 import java.util.Random;
 import java.util.concurrent.LinkedTransferQueue;
@@ -10,7 +10,8 @@ import java.util.concurrent.TransferQueue;
  *
  * 2016年7月7日
  *
- * 作用:幸运数字案例
+ * 作用:幸运数字案例(TransferQueue案例)
+ * 
  */
 
 public class 幸运数字 {
