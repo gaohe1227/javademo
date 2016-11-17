@@ -18,7 +18,8 @@ public class 信号灯 {
 			Runnable runnable = new Runnable(){
 					public void run(){
 					try {
-						sp.acquire();
+						sp.acquire();//获取许可证
+						 
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
@@ -30,8 +31,9 @@ public class 信号灯 {
 						e.printStackTrace();
 					}
 					System.out.println("线程" + Thread.currentThread().getName() + 
-							"即将离开");					
-					sp.release();
+							"即将离开");
+					
+					sp.release();//释放许可证
 					//下面代码有时候执行不准确，因为其没有和上面的代码合成原子单元
 					System.out.println("线程" + Thread.currentThread().getName() + 
 							"已离开，当前已有" + (3-sp.availablePermits()) + "个并发");					

@@ -33,10 +33,10 @@ public class Calculator extends RecursiveTask<Integer> {
             int middle = (start + end) /2;  
             Calculator left = new Calculator(start, middle);  
             Calculator right = new Calculator(middle + 1, end);  
-            left.fork();  
+            left.fork();  //执行
             right.fork();  
   
-            sum = left.join() + right.join();  
+            sum = left.join() + right.join();//取值  
         }  
         return sum;  
     }  
