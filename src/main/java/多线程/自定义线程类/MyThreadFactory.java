@@ -1,4 +1,4 @@
-package 多线程.线程工厂;
+package 多线程.自定义线程类;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,7 +29,7 @@ public class MyThreadFactory implements ThreadFactory {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MyThreadFactory factory = new MyThreadFactory("MyThreadFactory");
-		Task task = new Task();
+		MyTask task = new MyTask();
 		Thread thread;
 		System.out.printf("Starting the Threads\n");
 		for (int i = 0; i < 10; i++) {
@@ -61,7 +61,7 @@ public class MyThreadFactory implements ThreadFactory {
 	}
 }
 
-class Task implements Runnable {
+class MyTask implements Runnable {
 	@Override
 	public void run() {
 		try {
