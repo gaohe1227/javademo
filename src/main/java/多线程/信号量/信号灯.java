@@ -13,7 +13,7 @@ public class 信号灯 {
 	public static void main(String[] args) {
       
 		ExecutorService service = Executors.newCachedThreadPool();
-		final  Semaphore sp = new Semaphore(3);
+		final  Semaphore sp = new Semaphore(3);//代表同时最多只有3个线程在并发执行
 		for(int i=0;i<10;i++){
 			Runnable runnable = new Runnable(){
 					public void run(){
