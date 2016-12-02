@@ -14,6 +14,7 @@ public class ConcreteObserver implements Observer {
 	@Override
 	public void update(Subject subject) {
 		// TODO Auto-generated method stub
+		System.out.println("目标对象改变------------------------");
 		observerState = ((ConcreteSubject) subject).getSubjectstate();
 
 	}
