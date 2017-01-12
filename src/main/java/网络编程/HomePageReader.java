@@ -3,16 +3,18 @@ package 网络编程;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class HomePageReader {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Socket socket=null;
+		/*Socket socket=null;
 		try {
-    		  socket= new Socket("www.yahoo/com", 80);
+    		  socket= new Socket("www.jiaopeiwang.com", 80);
 			OutputStream out=socket.getOutputStream();
 			String str="GRT/HTTP/1.0\n\n";
 			out.write(str.getBytes());
@@ -34,7 +36,15 @@ public class HomePageReader {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}*/
+		try {
+			InetAddress address=InetAddress.getByName("www.baidu.com");
+			System.out.println(address.getHostAddress()+"----------"+address.getHostName());
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 		
 	}
 

@@ -5,7 +5,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import org.apache.tomcat.util.threads.StopPooledThreadException;
+ 
 /**
  * 
  * 倒计时计数器案例

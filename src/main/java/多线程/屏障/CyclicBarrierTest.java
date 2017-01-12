@@ -32,9 +32,9 @@ class Runner implements Runnable{
 		// TODO Auto-generated method stub
 		try {  
             Thread.sleep(1000 * (new Random()).nextInt(8));  
-            System.out.println(name + " 准备好了...");  
+          
             // barrier的await方法，在所有参与者都已经在此 barrier 上调用 await 方法之前，将一直等待。
-            System.out.println(cyclicBarrier.getNumberWaiting());
+            System.out.println(name + " 准备好了..."+"\n"+cyclicBarrier.getNumberWaiting());
             cyclicBarrier.await();  
             
         } catch (InterruptedException e) {  
